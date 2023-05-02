@@ -1,10 +1,76 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import cuisine from '../Images/cuisine.png'
+import { BeakerIcon, XMarkIcon, Bars4Icon } from '@heroicons/react/24/solid'
 
 const Header = () => {
+    const [open, setOpen] = useState(false)
     return (
-        <div>
-            <p> this is header</p>
-        </div>
+        <>
+            <div className='bg-gray-900'>
+                <div className='container mx-auto'>
+                    <div className="navbar  p-5">
+                        <div className="flex-1">
+                            <Link to="/" className="btn btn-ghost normal-case text-xl italic text-[orange]">
+                                <img className='w-[60px] h-[60px]' src={cuisine} alt="" /> Aly cuisine</Link>
+                        </div>
+                        <div className="flex-none gap-5 xl:gap-9">
+
+
+
+                            <div className='lg:block hidden'>
+                                <div className='flex  text-white gap-5'>
+                                    <Link className='hover:underline hover:text-orange-400' to="/" > <h1>Home</h1></Link>
+                                    <Link className='hover:underline hover:text-orange-400' to="/blog"> <h1>Blog</h1></Link>
+                                    <Link className='hover:underline hover:text-orange-400' to="/about"> <h1>About</h1></Link>
+                                    <Link className='hover:underline hover:text-orange-400' to="/log"> <h1>Log in</h1></Link>
+                                    <Link className='hover:underline hover:text-orange-400 ' to="/sign"> <h1>Sign up</h1></Link>
+
+                                </div>
+                            </div>
+                            <div className='lg:hidden nav' onClick={() => setOpen(!open)}>
+                                <span>
+                                    {
+                                        open === true ? <XMarkIcon className="h-8 w-8 text-primary" /> : <Bars4Icon className="h-8 w-8 text-primary" />
+                                    }
+                                </span>
+                                <div className={`${open ? 'bg-gray-900 text-primary p-6 w-44  right-14-0 pl-3' : '-top-96'
+                                    } absolute flex flex-col duration-1000 gap-3 `}>
+
+
+                                    <Link className='hover:underline hover:text-orange-400' to="/" > <h1>Home</h1></Link>
+                                    <Link className='hover:underline hover:text-orange-400' to="/blog"> <h1>Blog</h1></Link>
+                                    <Link className='hover:underline hover:text-orange-400' to="/about"> <h1>About</h1></Link>
+                                    <Link className='hover:underline hover:text-orange-400' to="/log"> <h1>Log in</h1></Link>
+                                    <Link className='hover:underline hover:text-orange-400 ' to="/sign"> <h1>Sign up</h1></Link>
+
+                                </div>
+
+                            </div>
+
+                            <div className="dropdown dropdown-end ">
+                                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        <abbr title='log in'> <img src={cuisine} /> </abbr>
+                                    </div>
+                                </label>
+                                <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                                    <li>
+                                        <a className="justify-between">
+                                            Profile
+                                            <span className="badge">New</span>
+                                        </a>
+                                    </li>
+                                    <li><a>Settings</a></li>
+                                    <li><a>Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </>
     );
 };
 

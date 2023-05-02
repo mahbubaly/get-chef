@@ -1,0 +1,12 @@
+.input-filed{
+    padding: 5px;
+    border: 2px solid gray;
+    border-radius: 5px;
+    
+}
+.nav{
+    z-index: 2;
+}
+.from-z{
+    z-index: 1;
+}
