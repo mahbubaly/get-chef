@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import cuisine from '../Images/cuisine.png'
 import { BeakerIcon, XMarkIcon, Bars4Icon } from '@heroicons/react/24/solid'
+import Banner from './Banner';
 
 const Header = () => {
     const [open, setOpen] = useState(false)
@@ -70,6 +71,8 @@ const Header = () => {
 
                 </div>
             </div>
+
+            <Banner />
         </>
     );
 };
