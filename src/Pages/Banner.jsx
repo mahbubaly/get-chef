@@ -11,7 +11,7 @@ const Banner = () => {
 
     const [chefs, setChefs] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/allChef')
+        fetch('https://server-site-five-flax.vercel.app/allChef')
             .then(res => res.json())
             .then(data => setChefs(data))
             .catch(err => console.error(err))
@@ -35,7 +35,7 @@ const Banner = () => {
                 </div>
 
 
-                <div className='mt-96 text-[48px] text-center font-bold'>
+                <div className='lg:mt-96 mb-5 text-[48px] text-center font-bold'>
                     <h1>Welcome...</h1>
                     <h2>Meet With our experts </h2>
 
@@ -43,7 +43,7 @@ const Banner = () => {
 
 
 
-                <div className='grid grid-cols-3 gap-5'>
+                <div className='grid lg:grid-cols-3 grid-cols-2 gap-5'>
 
                     {
                         chefs.map(chef =>

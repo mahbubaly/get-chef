@@ -35,7 +35,7 @@ const router = createBrowserRouter([
       {
         path: "/chef/:id",
         element: <SingleChef></SingleChef>,
-        loader: ({params}) => fetch(`http://localhost:5000/allChef/${params.id}`)
+        loader: ({params}) => fetch(`https://server-site-five-flax.vercel.app/allChef/${params.id}`)
         
       }
     ]
