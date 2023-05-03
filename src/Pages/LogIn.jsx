@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Styles/Style.css'
 import { Link } from 'react-router-dom';
 
 const LogIn = () => {
+    const [error,setError] = useState();
+
+    const handleLogin = event => {
+        event.preventDefault();
+
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+
+
+        
+    }
     return (
         <>
             <div>
@@ -14,7 +27,7 @@ const LogIn = () => {
 
                             </div>
                             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                                <div className="card-body">
+                                <form onSubmit={handleLogin} className="card-body">
                                     <div className="form-control">
                                         <label className="label">
                                             <span className="label-text">Email</span>
@@ -31,9 +44,9 @@ const LogIn = () => {
                                         </label>
                                     </div>
                                     <div className="form-control mt-6">
-                                        <button className="btn btn-primary">Login</button>
+                                        <button className='btn btn-primary'> <input className='btn-submit' type="submit" value="Login" /></button>
                                     </div>
-                                </div>
+                                </form>
 
                                 <small className='text-center mb-2'>Don't have account?<Link to="/sign" className='hover:underline  text-[orange]'>Sign up </Link> </small>
 
