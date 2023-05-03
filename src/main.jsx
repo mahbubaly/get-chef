@@ -10,6 +10,8 @@ import {
 import Error from './Pages/Error.jsx';
 import LogIn from './Pages/LogIn.jsx';
 import SignUp from './Pages/SignUp.jsx';
+import Banner from './Pages/Banner.jsx';
+import SingleChef from './Pages/ChefDetails/SingleChef.jsx';
 
 const router = createBrowserRouter([
   {
@@ -18,12 +20,23 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
+        path: "/",
+        element: <Banner />
+
+      },
+      {
         path: "/log",
         element: <LogIn />
       },
       {
         path: "/sign",
         element: <SignUp />
+      },
+      {
+        path: "/chef/:id",
+        element: <SingleChef></SingleChef>,
+        loader: ({params}) => fetch(`http://localhost:5000/allChef/${params.id}`)
+        
       }
     ]
   },

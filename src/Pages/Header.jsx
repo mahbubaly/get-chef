@@ -72,7 +72,7 @@ const Header = () => {
                 </div>
             </div>
 
-            <Banner />
+            
         </>
     );
 };
