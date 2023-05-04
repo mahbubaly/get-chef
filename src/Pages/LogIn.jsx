@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Styles/Style.css'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, Navigate, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../Main/Authprovider/AuthProvider';
 
 const LogIn = () => {
     const [error,setError] = useState();
+    const {logIn} = useContext(AuthContext)
+    const location = useLocation();
+    console.log(location);
+    const Navigate = useNavigate()
+    const from = location.state?.form?.pathname || '/'
 
     const handleLogin = event => {
         event.preventDefault();
@@ -12,6 +18,18 @@ const LogIn = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+
+        logIn(email, password) 
+        .then(result => {
+            const logIn = result.user;
+            console.log(logIn);
+            form.reset();
+            Navigate(from , {replace: true});
+        })
+        .catch( error => {
+            console.error(error);
+            setError("Invalid password!!")
+        })
 
 
         
@@ -47,6 +65,10 @@ const LogIn = () => {
                                         <button className='btn btn-primary'> <input className='btn-submit' type="submit" value="Login" /></button>
                                     </div>
                                 </form>
+
+                                <div className=' ml-8 mb-2'>
+                                    <p className='text-warning '>{error} </p>
+                                </div>
 
                                 <small className='text-center mb-2'>Don't have account?<Link to="/sign" className='hover:underline  text-[orange]'>Sign up </Link> </small>
 

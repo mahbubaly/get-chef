@@ -1,11 +1,24 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import cuisine from '../Images/cuisine.png'
 import { BeakerIcon, XMarkIcon, Bars4Icon } from '@heroicons/react/24/solid'
 import Banner from './Banner';
+import { AuthContext } from '../Main/Authprovider/AuthProvider';
 
 const Header = () => {
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(false);
+    const { user, logOut } = useContext(AuthContext);
+    const handlerSignOut = () => {
+        logOut()
+            .then(result => { })
+            .catch(error => {
+                console.error(error.message);
+            })
+    }
+
+
+
+
     return (
         <>
             <div className='bg-gray-900'>
@@ -20,12 +33,15 @@ const Header = () => {
 
 
                             <div className='lg:block hidden'>
-                                <div className='flex  text-white gap-5'>
+                                <div className='flex items-center text-white gap-5'>
                                     <Link className='hover:underline hover:text-orange-400' to="/" > <h1>Home</h1></Link>
                                     <Link className='hover:underline hover:text-orange-400' to="/blog"> <h1>Blog</h1></Link>
                                     <Link className='hover:underline hover:text-orange-400' to="/about"> <h1>About</h1></Link>
                                     <Link className='hover:underline hover:text-orange-400' to="/log"> <h1>Log in</h1></Link>
                                     <Link className='hover:underline hover:text-orange-400 ' to="/sign"> <h1>Sign up</h1></Link>
+                                    <div>
+                                        {user && <span className='text-white'> {user.email} <button onClick={handlerSignOut} className=' ml-3 rounded hover:bg-red-600   '>Sign out</button> </span>}
+                                    </div>
 
                                 </div>
                             </div>
@@ -44,6 +60,9 @@ const Header = () => {
                                     <Link className='hover:underline hover:text-orange-400' to="/about"> <h1>About</h1></Link>
                                     <Link className='hover:underline hover:text-orange-400' to="/log"> <h1>Log in</h1></Link>
                                     <Link className='hover:underline hover:text-orange-400 ' to="/sign"> <h1>Sign up</h1></Link>
+                                    <div>
+                                        {user && <span className='text-white'> {user.display}</span>}
+                                    </div>
 
                                 </div>
 
@@ -52,18 +71,20 @@ const Header = () => {
                             <div className="dropdown dropdown-end ">
                                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                     <div className="w-10 rounded-full">
-                                        <abbr title='log in'> <img src={cuisine} /> </abbr>
+                                        <abbr title={user ? "Log out": "log in" }> <img src={cuisine} /> </abbr>
                                     </div>
                                 </label>
                                 <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                                     <li>
                                         <a className="justify-between">
                                             Profile
-                                            <span className="badge">New</span>
+                                           
                                         </a>
                                     </li>
                                     <li><a>Settings</a></li>
-                                    <li><a>Logout</a></li>
+                                    <div>
+                                        {user && <span className='text-white'> {user.email} <button onClick={handlerSignOut} className='btn btn-warning '>Sign out</button> </span>}
+                                    </div>
                                 </ul>
                             </div>
                         </div>
@@ -72,7 +93,7 @@ const Header = () => {
                 </div>
             </div>
 
-            
+
         </>
     );
 };
