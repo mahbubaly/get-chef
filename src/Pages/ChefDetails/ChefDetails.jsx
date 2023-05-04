@@ -15,10 +15,10 @@ const ChefDetails = ({ chef }) => {
                         <img src={image} alt="Shoes" className="rounded-xl" />
                     </figure>
                     <div className='p-6'>
-                        <h1 className='text-xl font-semibold'>Name: {name}</h1>
+                        <h1 className='lg:text-xl font-semibold'>Name: {name}</h1>
 
-                        <h2 className='mt-2'>Nationality: Indian</h2>
-                        <p className='my-2'><ImLocation className='inline mr-2 ' /> location: India</p>
+                        <h2 className='lg:mt-2'>Nationality: Indian</h2>
+                        <p className='my-2'><ImLocation className='lg:inline mr-2 ' /> location: India</p>
                         <div className='lg:flex justify-between items-center'>
                             <div className="rating flex lg:block">
                                 <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
