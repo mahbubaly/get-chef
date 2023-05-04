@@ -30,7 +30,7 @@ const Banner = () => {
                 <div className='lg:-mt-[500px] -mt-40  text-center text-white '>
                     <h1 className='lg:text-[48px]  text-[20px]'>Indian Expert chef Recipes...</h1>
                     <p className='my-4'>Views 100k+ recipes</p>
-                    <Link><button className='btn btn-warning'>View recipes </button></Link>
+                    <Link to="/view"><button className='btn btn-warning'>View recipes </button></Link>
 
                 </div>
 

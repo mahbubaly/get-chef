@@ -16,6 +16,7 @@ import AuthProvider from './Main/Authprovider/AuthProvider.jsx';
 import PrivateRoute from './Pages/PrivateRoutes/PrivateRoute.jsx';
 import Blogs from './Pages/Blogs.jsx';
 import Contact from './Pages/Contact.jsx';
+import ViewAllRecipes from './Pages/ViewAllRecipes.jsx';
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,11 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <Contact />
+
+      },
+      {
+        path: "/view",
+        element: <ViewAllRecipes />
 
       }
     ]
