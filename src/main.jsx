@@ -14,6 +14,8 @@ import Banner from './Pages/Banner.jsx';
 import SingleChef from './Pages/ChefDetails/SingleChef.jsx';
 import AuthProvider from './Main/Authprovider/AuthProvider.jsx';
 import PrivateRoute from './Pages/PrivateRoutes/PrivateRoute.jsx';
+import Blogs from './Pages/Blogs.jsx';
+import Contact from './Pages/Contact.jsx';
 
 const router = createBrowserRouter([
   {
@@ -36,8 +38,18 @@ const router = createBrowserRouter([
       },
       {
         path: "/chef/:id",
-        element: <PrivateRoute> <SingleChef></SingleChef> </PrivateRoute> ,
+        element: <PrivateRoute> <SingleChef></SingleChef> </PrivateRoute>,
         loader: ({ params }) => fetch(`https://server-site-five-flax.vercel.app/allChef/${params.id}`)
+
+      },
+      {
+        path: "/blog",
+        element: <Blogs />
+
+      },
+      {
+        path: "/about",
+        element: <Contact />
 
       }
     ]

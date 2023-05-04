@@ -31,7 +31,7 @@ const ChefDetails = ({ chef }) => {
 
 
 
-                            <Link to={`/chef/${id}`}><button className='btn  bg-[#222224] text-white'>View Details</button></Link>
+                            <Link to={`/chef/${id}`}><button className='btn  bg-[#222224] text-white'>View Recipes</button></Link>
                         </div>
                     </div>
                 </div>
