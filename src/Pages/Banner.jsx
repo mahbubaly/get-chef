@@ -27,15 +27,15 @@ const Banner = () => {
 
             <div className='container mx-auto px-6 mt-1 '>
 
-                <div className='lg:-mt-[500px] -mt-8  text-center text-white '>
-                    <h1 className='text-[48px] '>Indian Expert chef Recipes...</h1>
+                <div className='lg:-mt-[500px] -mt-40  text-center text-white '>
+                    <h1 className='lg:text-[48px]  text-[20px]'>Indian Expert chef Recipes...</h1>
                     <p className='my-4'>Views 100k+ recipes</p>
                     <Link><button className='btn btn-warning'>View recipes </button></Link>
 
                 </div>
 
 
-                <div className='lg:mt-96 mb-5 text-[48px] text-center font-bold'>
+                <div className='lg:mt-96 my-10 text-[32px] lg:text-[48px]  text-center font-bold'>
                     <h1>Welcome...</h1>
                     <h2>Meet With our experts </h2>
 
