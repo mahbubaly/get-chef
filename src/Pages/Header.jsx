@@ -68,7 +68,7 @@ const Header = () => {
 
                             </div>
 
-                            <div className="dropdown dropdown-end ">
+                            <div className="dropdown dropdown-end hidden lg:block ">
                                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                     <div className="w-10 rounded-full">
                                         <abbr title={user ? "Log out": "log in" }> <img src={cuisine} /> </abbr>
