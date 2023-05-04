@@ -51,7 +51,7 @@ const Header = () => {
                                         open === true ? <XMarkIcon className="h-8 w-8 text-primary" /> : <Bars4Icon className="h-8 w-8 text-primary" />
                                     }
                                 </span>
-                                <div className={`${open ? 'bg-gray-900 text-primary p-6 w-44  right-14-0 pl-3' : '-top-96'
+                                <div className={`${open ? 'bg-gray-900 right-0  text-primary p-6 w-44  right-14-0 pl-3 ' : '-top-96 -left-9'
                                     } absolute flex flex-col duration-1000 gap-3 `}>
 
 
