@@ -31,11 +31,11 @@ const SignUp = () => {
             setError("Your password is less then 6 digit!! ")
 
         }
-        else if (password== 1234567890) {
+        else if (password=== 1234567890) {
             setError("Your password is Week!! ")
 
         }
-        else if (password== abcdefgh) {
+        else if (password=== abcdefgh) {
             setError("Your password is Week!! ")
 
         }
