@@ -1,11 +1,15 @@
 import React, { useContext, useState } from 'react';
 import './Styles/Style.css'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Main/Authprovider/AuthProvider';
 
 const SignUp = () => {
     const [error, setError] = useState();
     const { createUser } = useContext(AuthContext)
+    const location = useLocation();
+    console.log(location);
+    const Navigate = useNavigate()
+    const from = location.state?.form?.pathname || '/'
 
     const handleLogin = event => {
         event.preventDefault();
@@ -23,8 +27,16 @@ const SignUp = () => {
             setError("Your password did't matched!!")
 
         }
-        if (password.length < 6) {
+        else if (password.length < 6) {
             setError("Your password is less then 6 digit!! ")
+
+        }
+        else if (password== 1234567890) {
+            setError("Your password is Week!! ")
+
+        }
+        else if (password== abcdefgh) {
+            setError("Your password is Week!! ")
 
         }
 
@@ -32,6 +44,7 @@ const SignUp = () => {
             .then(result => {
                 const userLogged = result.user;
                 console.log(userLogged);
+                Navigate(from , {replace: true});
             })
             .catch(error => {
                 console.error(error.message);
