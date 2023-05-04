@@ -27,18 +27,11 @@ const SignUp = () => {
             setError("Your password did't matched!!")
 
         }
-        else if (password.length < 6) {
+        else if (password.length <= 6) {
             setError("Your password is less then 6 digit!! ")
 
         }
-        else if (password=== 1234567890) {
-            setError("Your password is Week!! ")
-
-        }
-        else if (password=== abcdefgh) {
-            setError("Your password is Week!! ")
-
-        }
+       
 
         createUser(email, password)
             .then(result => {
