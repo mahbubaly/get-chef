@@ -4,19 +4,21 @@ import toast, { Toaster } from 'react-hot-toast';
 const Recipe = ({ recipe }) => {
     console.log(recipe);
 
-    const notify = () => toast('Added Favorite recipe');
+    const notify = () => toast( 'Added Favorite recipe');
     return (
         <>
             <div>
 
 
-                <div className="card  w-96 bg-base-100 shadow-xl">
-                    <figure className="px-10 pt-10">
+                <div className="card  lg:w-96 bg-base-100 shadow-xl">
+                    <figure className="lg:px-10 px-1 pt-10">
                         <img src={recipe.image} alt="Shoes" className="rounded-xl " />
                     </figure>
-                    <div className=" p-6">
+                    <div className=" lg:p-6 p-2 ">
 
                         <h1 className='text-2xl'>{recipe.name}</h1>
+                        
+
                         <h2>{recipe.description}</h2>
                         <h1 className='text-2xl font-semibold mt-2'>Ingredients: </h1>
                         <ul className='grid grid-cols-2 mt-2'>
@@ -26,7 +28,7 @@ const Recipe = ({ recipe }) => {
                             }
 
                         </ul>
-                        <div className='flex justify-between my-3'>
+                        <div className='lg:flex justify-between my-3'>
                             <h1 className='text-2xl p-2  rounded-2xl'>Views: {recipe.views} </h1>
                             <h1 className='text-2xl p-2  rounded-2xl'>Likes: {recipe.views} </h1>
                         </div>

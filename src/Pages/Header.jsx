@@ -25,8 +25,13 @@ const Header = () => {
                 <div className='container mx-auto'>
                     <div className="navbar  p-5">
                         <div className="flex-1">
-                            <Link to="/" className="btn btn-ghost normal-case text-xl italic text-[orange]">
-                                <img className='w-[60px] h-[60px]' src={cuisine} alt="" /> Aly cuisine</Link>
+                            <Link to="/" className="flex items-center normal-case text-xl italic text-[orange]">
+                                <img className='w-[60px] h-[60px]' src={cuisine} alt="" />
+
+                                <h1>Aly cuisine </h1>
+
+
+                            </Link>
                         </div>
                         <div className="flex-none gap-5 xl:gap-9">
 
@@ -59,9 +64,10 @@ const Header = () => {
                                     <Link className='hover:underline hover:text-orange-400' to="/blog"> <h1>Blog</h1></Link>
                                     <Link className='hover:underline hover:text-orange-400' to="/about"> <h1>About</h1></Link>
                                     <Link className='hover:underline hover:text-orange-400' to="/log"> <h1>Log in</h1></Link>
+
                                     <Link className='hover:underline hover:text-orange-400 ' to="/sign"> <h1>Sign up</h1></Link>
                                     <div>
-                                        {user && <span className='text-white'> {user.display}</span>}
+                                        {user && <span className='text-white'> {user.email} <button onClick={handlerSignOut} className=' ml-3 rounded hover:bg-red-600   '>Sign out</button> </span>}
                                     </div>
 
                                 </div>
@@ -71,14 +77,14 @@ const Header = () => {
                             <div className="dropdown dropdown-end hidden lg:block ">
                                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                     <div className="w-10 rounded-full">
-                                        <abbr title={user ? "Log out": "log in" }> <img src={cuisine} /> </abbr>
+                                        <abbr title={user ? "Log out" : "log in"}> <img src={cuisine} /> </abbr>
                                     </div>
                                 </label>
                                 <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                                     <li>
                                         <a className="justify-between">
                                             Profile
-                                           
+
                                         </a>
                                     </li>
                                     <li><a>Settings</a></li>

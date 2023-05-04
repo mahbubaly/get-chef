@@ -11,9 +11,9 @@ const SingleChef = () => {
             <div>
 
                 <div className='container mx-auto '>
-                    <div className='p-5 mt-7'>
+                    <div className='p-5 mt-5 lg:mt-7'>
                         <img className='mx-auto' src={chefId.image} alt="" />
-                        <div className='ml-36 my-5'>
+                        <div className='lg:ml-36 my-5'>
                             <h1 className='text-2xl font-semibold'>Name: {chefId.name}</h1>
                             <p className='my-3'>{chefId.name} {chefId.chef_des}</p>
                             <h2>{chefId.description}</h2>
@@ -21,7 +21,7 @@ const SingleChef = () => {
                             <small className='lg'>Age {chefId.age}</small>
 
                         </div>
-                        <div className='flex justify-around '>
+                        <div className='lg:flex  justify-around '>
                             {
                                 chefId.recipes.map(recipe => <Recipe
                                     key={recipe.id}
